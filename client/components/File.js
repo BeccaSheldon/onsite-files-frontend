@@ -9,14 +9,9 @@ export default class File extends Component {
 			show: false
 		}
 	}
-
-  const addFile = (filename) => {
-
-  }
-
   render() {
     return (
-      <
+      null
     )
   }
 }
