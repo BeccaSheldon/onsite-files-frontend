@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Files from './components/Files.jsx';
+import Files from './components/Files.js';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -33,8 +33,19 @@ export default class App extends React.Component {
   }
 
 	render() {
+    const listStyle = {
+      display: "inline-block",
+      padding: "10rem",
+      listStyle: "none"
+    }
+
 		return(
 			<div className="App">
+        <ul style={listStyle}>
+          <li style={listStyle}>File Name</li>
+          <li style={listStyle}>Size</li>
+          <li style={listStyle}>Date Modified</li>
+        </ul>
         <Files/>
 			</div>
 		)
