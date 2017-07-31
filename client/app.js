@@ -22,8 +22,8 @@ export default class App extends React.Component {
     .then(result => result.json())
     .then((data) => {
       console.log(data)
-      return data.results
-      // formatFiles(data.results)
+      const filesFound = data.result.map(obj => obj.data)
+      this.setState({ filesFound })
     })
     .catch(err => new Error(console.log('Hit a snag reaching API endpoint! Error code: ' + err)))
   }
@@ -35,7 +35,7 @@ export default class App extends React.Component {
 	render() {
     const listStyle = {
       display: "inline-block",
-      padding: "10rem",
+      padding: "2rem",
       listStyle: "none"
     }
 
@@ -46,7 +46,7 @@ export default class App extends React.Component {
           <li style={listStyle}>Size</li>
           <li style={listStyle}>Date Modified</li>
         </ul>
-        <Files/>
+        <Files filesData={this.getFiles(this.makeUrl())} />
 			</div>
 		)
 	}
